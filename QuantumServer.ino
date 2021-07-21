@@ -7,7 +7,7 @@
 #define domain "qc" //http://qc.local
 
 WiFiServer server(80);
-const float ref_val=232;
+float ref_val;
 void setup() {
 Serial.begin(1000000);
 WiFi.mode(WIFI_STA);
@@ -35,11 +35,16 @@ WiFi.begin(ssid,password);
   Serial.println("TCP server started");
 
    MDNS.addService("http", "tcp", 80);
+   ref_val=mean_val();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
    MDNS.update();
+   if(millis()%100000<100){
+     ref_val=mean_val();
+
+   }
   
   // Check if a client has connected
   WiFiClient client = server.available();
@@ -105,4 +110,14 @@ void loop() {
   client.print(s);
 
   Serial.println("Done with client");
+}
+
+float mean_val(){
+  long sum=0;
+  float result;
+  for (int i=0; i<100;i++){
+    sum+=analogRead(A0);
+  }
+  result=sum/100;
+  return result;
 }
