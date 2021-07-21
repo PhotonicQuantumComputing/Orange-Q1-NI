@@ -2,7 +2,7 @@
 #include <ESP8266mDNS.h>
 #include <WiFiClient.h>
 
-#define ssid "1
+#define ssid ""
 #define password ""
 #define domain "qc" //http://qc.local
 
