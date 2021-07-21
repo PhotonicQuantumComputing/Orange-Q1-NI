@@ -81,7 +81,7 @@ void loop() {
     s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html><head><title>Q-Server|Orange-1Q</title></head><body bgcolor=\"#ff9000\">";
     s+= "<h1>Orange-1Q</h1><p>Orange 1-Q is a quantum computer. It consists one qubit The qubit fixed in the state of |v>=0.707106|0>+0.707106|1>. You can measure it</p>";
     s+= "<br/></br><iframe src=\"m1\"></iframe>";
-    s+= "<br/><br/><a href=\"m0\">Only get the value</a><br/>The Orange 1Q is open source. Get the <a href=\"https://github.com/alihakimtaskiran/Orange-Q1\" target=\"_blank\">soruce here</a></body></html>\r\n\r\n";
+    s+= "<br/><br/><a href=\"m0\">Only get the value</a><br/>The Orange 1Q is open source. Get the <a href=\"https://github.com/PhotonicQuantumComputing/Orange-Q1\" target=\"_blank\">soruce here</a></body></html>\r\n\r\n";
     Serial.println("Sending 200");
   }
   else if (req=="/m0"){
